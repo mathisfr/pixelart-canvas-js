@@ -33,12 +33,12 @@ function draw(newSizePixel){
     canvas.addEventListener('mousedown', function(evt){
       var mousePos = getMousePos(canvas, evt);
       arrayPixels.forEach(element =>{
-        console.table(element)
         element.forEach(pix=>{
-          if(pix.posY > mousePos.y && pix.posY < (mousePos.y+(sizePixel+1))){
-            if(pix.posX > mousePos.x && pix.posX < (mousePos.x+(sizePixel+1))){
+          if(pix.posY > (mousePos.y-(sizePixel)) && pix.posY < mousePos.y){
+            if(pix.posX > (mousePos.x-(sizePixel)) && pix.posX < mousePos.x){
               pix.drawPixel()
               console.log("Hit :"+pix.posX+"x ;"+pix.posY+"y");
+              console.log("Mouse :"+mousePos.y+"x ;"+mousePos.x+"y");
             }
           }
         })
